@@ -1,0 +1,18 @@
+<div class="header__component">
+  <div class="header__elements">
+    <div class="burger_search">
+      <a class="burger-item" *ngIf="getBurger()" (click)="showSidebar(); burgerToggle = !burgerToggle">
+        <img src="assets/burger.png" alt="menu" class="burger-image" *ngIf="burgerToggle">
+        <img src="assets/close.png" alt="menu" class="cross-image" *ngIf="!burgerToggle">
+      </a>
+      <input type="text" class="header__search" placeholder="Search By Name..." [(ngModel)]="name" (ngModelChange)="searchByName()">
+    </div>
+    <div class="user__side">
+      <div class="user_logo"></div>
+      <div class="user_info">
+        <p class="user-name">Mr. Director</p>
+        <p class="user-position">Managing Director</p>
+      </div>
+    </div>
+  </div>
+</div>

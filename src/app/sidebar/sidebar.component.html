@@ -1,0 +1,11 @@
+<div class="sidebar__component">
+  <div class="img_with_list">
+    <img src="../../assets/logo.svg" alt="" class="sidebar__logo">
+    <ul class="items__list">
+      <button class="item-btn" [ngClass]="{active: getActiveComp() === 'contacts'}" (click)="activeComponent('contacts')"><li class="item"><img src="assets/totCont.svg" class="item-icon"><span>Total Contacts</span></li></button>
+      <button class="item-btn" [ngClass]="{active: getActiveComp() === 'calendar'}" (click)="activeComponent('calendar')"><li class="item"><img src="assets/calendar.svg" class="item-icon"><span>Calendar</span></li></button>
+      <button class="item-btn" [ngClass]="{active: getActiveComp() === 'projectReport'}" (click)="activeComponent('projectReport')"><li class="item"><img src="assets/projRep.svg" class="item-icon"><span>Project Report</span></li></button>
+    </ul>
+  </div>
+  <button class="btn-logout" (click)="logout()"><img src="assets/logout.svg" alt="" class="logout-img">Log out</button>
+</div>

@@ -1,0 +1,25 @@
+<div class="login__page">
+  <img src="../../assets/logo.svg" alt="" class="login__logo">
+  <h1 class="login__title">
+    Welcome To CRM System <br>
+    Sign In To Your Account
+  </h1>
+  <div class="login__box">
+    <div class="login__box-p-input">
+      <p class="login__box-sign">Login</p>
+      <input type="text" class="login__input" name="login" [(ngModel)]="username" >
+    </div>
+    <div class="login__box-p-input">
+      <p class="login__box-sign">Password</p>
+      <div class="password__box">
+        <input type="password" class="login__input" id="password_input" name="password" [(ngModel)]="password" (keyup.enter)="onLoginClick()">
+        <span class="password_eye"><a href="#" class="password_show-hide" (click)="show_hide_password($event)"></a></span>
+      </div>
+    </div>
+    <div class="error__box validation" *ngIf="errorToggle">
+      <p class="danger-text" *ngIf="error === 1">Please Fill Empty Fields</p>
+      <p class="danger-text" *ngIf="error === 2">Incorrect Login Or Password</p>
+    </div>
+    <button class="btn btn_signin" (click)="onLoginClick()">SIGN IN</button>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="contacts_element">
+  <div class="add_with_table">
+    <div class="add_contact_element">
+      <div class="header_with_button">
+        <h2 class="table_title">Total Contacts</h2>
+        <button class="btn btn-add" (click)="addToggle = !addToggle">
+          <span *ngIf="!addToggle">Add +</span>
+          <span *ngIf="addToggle">close</span>
+        </button>
+      </div>
+      <div class="add_contact_field" *ngIf="addToggle">
+        <table class="contacts_table">
+          <tr class="table_row">
+            <th class="table_head">Client ID</th>
+            <th class="table_head">Client name</th>
+            <th class="table_head">TRN / PPSN</th>
+            <th class="table_head">Year end</th>
+            <th class="table_head">ARD</th>
+            <th class="table_head">Company number</th>
+            <th class="table_head">Email</th>
+            <th class="table_head">Phone Number</th>
+            <th class="table_head">Company address</th>
+          </tr>
+          <tr class="table_row">
+            <td class="row-data">
+              <input type="number" class="input-new-client" [(ngModel)]="newContact.id" required>
+            </td>
+            <td class="row-data">
+              <input type="text" class="input-new-client" [(ngModel)]="newContact.clientName" required>
+            </td>
+            <td class="row-data">
+              <input type="number" class="input-new-client" [(ngModel)]="newContact.TRN_PPSN" required>
+            </td>
+            <td class="row-data">
+              <input type="date" class="input-new-client" [(ngModel)]="newContact.yearEnd" required>
+            </td>
+            <td class="row-data">
+              <input type="date" class="input-new-client" [(ngModel)]="newContact.ARD" required>
+            </td>
+            <td class="row-data">
+              <input type="number" class="input-new-client" [(ngModel)]="newContact.companyNumber" required>
+            </td>
+            <td class="row-data">
+              <input type="text" class="input-new-client" [(ngModel)]="newContact.email" required>
+            </td>
+            <td class="row-data">
+              <input type="number" class="input-new-client" [(ngModel)]="newContact.phoneNumber" required>
+            </td>
+            <td class="row-data">
+              <input type="text" class="input-new-client" [(ngModel)]="newContact.companyAddress" required>
+            </td>
+          </tr>
+        </table>
+        <div class="add-error" *ngIf="errorToggle">
+          <span class="danger-text">Please Fill In All Fields</span>
+        </div>
+        <button class="btn btn_add-new-client" (click)="addNewContact()">Add</button>
+      </div>
+    </div>
+
+    <table class="contacts_table">
+      <tr class="table_row">
+        <th class="table_head">
+          <input type="checkbox" class="main-checkbox" (change)="checkAll()">
+        </th>
+        <th class="table_head">Client ID</th>
+        <th class="table_head">Client name</th>
+        <th class="table_head">TRN / PPSN</th>
+        <th class="table_head">Year end</th>
+        <th class="table_head">ARD</th>
+        <th class="table_head">Company number</th>
+        <th class="table_head">Email</th>
+        <th class="table_head">Phone Number</th>
+        <th class="table_head">Company address</th>
+        <th class="table_head">Action</th>
+      </tr>
+      <tr class="table_row" *ngFor="let client of getContacts(pageIndex); index as i">
+        <td class="row-data contact-row">
+          <input type="checkbox" class="row-checkbox">
+        </td>
+        <td class="row-data contact-row">{{client.id}}</td>
+        <td class="row-data contact-row">{{client.clientName}}</td>
+        <td class="row-data contact-row">{{client.TRN_PPSN}}</td>
+        <td class="row-data contact-row">{{client.yearEnd | date:'dd/MM/yy'}}</td>
+        <td class="row-data contact-row">{{client.ARD | date:'dd/MM/yy'}}</td>
+        <td class="row-data contact-row">{{client.companyNumber}}</td>
+        <td class="row-data contact-row"><div class="truncate">{{client.email}}</div></td>
+        <td class="row-data contact-row">{{client.phoneNumber}}</td>
+        <td class="row-data contact-row"><div class="truncate">{{client.companyAddress}}</div></td>
+        <td class="row-data contact-row edit-delete-btns">
+          <a class="btn-edit" (click)="editContact(client.id)"><img class="edit-delete-img" src="assets/edit.svg" alt=""></a>
+          <a class="btn-delete" (click)="deleteContact(client.id)"><img class="edit-delete-img" src="assets/delete.svg" alt=""></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="btn_controls">
+    <button class="btn-control left-arrow" [disabled]="pageIndex === 0" (click)="getContacts(pageIndex = pageIndex-1)"></button>
+    <button class="btn-control" [ngClass]="{active: pageIndex === i}" *ngFor="let amount of getAmountOfPages(); index as i" (click)="getContacts(pageIndex = i)">
+      {{i+1}}
+    </button>
+    <button class="btn-control right-arrow" [disabled]="pageIndex === getAmountOfPages().length - 1" (click)="getContacts(pageIndex = pageIndex+1)"></button>
+  </div>
+</div>

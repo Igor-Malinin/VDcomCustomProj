@@ -1,0 +1,61 @@
+.header__component {
+  color: var(--text-color-peachy);
+  background-color: var(--back-color-dark);
+}
+
+.header__elements {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+  background-color: var(--back-color-dark);
+}
+
+.burger-item {
+  cursor: pointer;
+}
+
+.burger-image {
+  width: 40px;
+  margin-right: 30px;
+}
+
+.cross-image {
+  width: 27px;
+  margin-right: 30px;
+}
+
+.header__search {
+  width: 250px;
+  background-color: var(--back-color-lightpeachy);
+  border: 2px solid var(--border-color-peachy);
+  background-image: url("../../assets/discover.png");
+  padding-left: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.header__search::placeholder {
+  color: #525252;
+}
+
+.user__side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user_logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: url("../../assets/user.png") center;
+  background-size: cover;
+}
+
+.user-position {
+  color: var(--back-color-lightpeachy);
+  font-size: 12px;
+}
+
+

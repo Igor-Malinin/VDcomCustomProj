@@ -1,0 +1,26 @@
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar_with_component {
+  display: flex;
+  background-color: var(--back-color-light);
+  height: 100%;
+  width: 100%;
+}
+
+.header_and_component {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.components {
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}

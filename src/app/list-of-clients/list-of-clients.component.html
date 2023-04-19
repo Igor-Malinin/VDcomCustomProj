@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="sidebar_with_component">
+    <app-sidebar [ngClass]="{hidden: getWideScreen()}"></app-sidebar>
+    <div class="header_and_component">
+      <div class="header_with_burger">
+        <app-header></app-header>
+      </div>
+      <div class="components">
+        <app-contacts *ngIf="getActiveComp() === 'contacts'"></app-contacts>
+        <app-calendar *ngIf="getActiveComp() === 'calendar'"></app-calendar>
+        <app-project-report *ngIf="getActiveComp() === 'projectReport'"></app-project-report>
+      </div>
+    </div>
+  </div>
+</div>

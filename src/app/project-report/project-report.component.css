@@ -1,0 +1,118 @@
+.centralize {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  display: flex;
+  align-items: center;
+  padding: 50px 0 50px 80px;
+  background-color: #fff0ec;
+  border: 2px solid var(--back-color-dark);
+  border-radius: 3px;
+  box-shadow: 4px 4px 8px #858484;
+}
+
+.logo-img {
+  width: 100px;
+  height: 100px;
+}
+
+.pie {
+  --pie-color-1: hsl(0, 100%, 70%); /* цвет сектора */
+  --pie-color-2: hsl(60, 100%, 70%);
+  --pie-color-3: hsl(150, 100%, 70%);
+  --pie-color-4: hsl(210, 100%, 70%);
+  --pie-color-5: hsl(270, 100%, 70%);
+  display: grid;
+  grid-template-columns: 12em 10em; /* 12em — размер диаграммы, 10em — размер легенды */
+  gap: 0 3em; /* 3em - 2em (margin-left) = 1em — расстояние от диаграммы до легенды */
+  overflow: auto;
+}
+.pie div {
+  grid-column: 2 / 3;
+  align-self: center;
+}
+.pie svg {
+  grid-column: 1 / 2;
+  grid-row: 1 / 6;
+}
+.pie div::before {
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  margin-left: -2em; /* 1.5em (width) + .5em (margin-right) = 2em */
+  margin-right: .5em;
+  vertical-align: middle;
+}
+.pie div:nth-of-type(1):before {
+  background: var(--pie-color-1);
+}
+.pie div:nth-of-type(2):before {
+  background: var(--pie-color-2);
+}
+.pie div:nth-of-type(3):before {
+  background: var(--pie-color-3);
+}
+.pie div:nth-of-type(4):before {
+  background: var(--pie-color-4);
+}
+.pie div:nth-of-type(5):before {
+  background: var(--pie-color-5);
+}
+.pie text {
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-size: 5px;
+  visibility: hidden;
+}
+.pie circle {
+  fill: none;
+  stroke-width: 8;
+  cursor: pointer;
+  transition: all 1.5s;
+}
+.pie circle:nth-of-type(1) {
+  stroke: var(--pie-color-1);
+  stroke-dasharray: 25 100;
+}
+.pie circle:nth-of-type(2) {
+  stroke: var(--pie-color-2);
+  stroke-dasharray: 0 25 3 100;
+}
+.pie circle:nth-of-type(3) {
+  stroke: var(--pie-color-3);
+  stroke-dasharray: 0 28 10 100;
+}
+.pie circle:nth-of-type(4) {
+  stroke: var(--pie-color-4);
+  stroke-dasharray: 0 38 40 100;
+}
+.pie circle:nth-of-type(5) {
+  stroke: var(--pie-color-5);
+  stroke-dasharray: 0 78 100;
+}
+.pie div:nth-of-type(1):hover ~ svg circle:not(:nth-of-type(1)),
+.pie div:nth-of-type(2):hover ~ svg circle:not(:nth-of-type(2)),
+.pie div:nth-of-type(3):hover ~ svg circle:not(:nth-of-type(3)),
+.pie div:nth-of-type(4):hover ~ svg circle:not(:nth-of-type(4)),
+.pie div:nth-of-type(5):hover ~ svg circle:not(:nth-of-type(5)),
+.pie g:hover circle:not(:hover) {
+  opacity: .3;
+}
+.pie div:nth-of-type(1):hover ~ svg text:nth-of-type(1),
+.pie div:nth-of-type(2):hover ~ svg text:nth-of-type(2),
+.pie div:nth-of-type(3):hover ~ svg text:nth-of-type(3),
+.pie div:nth-of-type(4):hover ~ svg text:nth-of-type(4),
+.pie div:nth-of-type(5):hover ~ svg text:nth-of-type(5),
+.pie circle:nth-of-type(1):hover ~ text:nth-of-type(1),
+.pie circle:nth-of-type(2):hover ~ text:nth-of-type(2),
+.pie circle:nth-of-type(3):hover ~ text:nth-of-type(3),
+.pie circle:nth-of-type(4):hover ~ text:nth-of-type(4),
+.pie circle:nth-of-type(5):hover ~ text:nth-of-type(5) {
+  visibility: visible;
+}

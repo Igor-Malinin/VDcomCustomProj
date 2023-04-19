@@ -1,0 +1,141 @@
+.contacts_element{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  background-color: var(--back-color-light);
+  box-sizing: border-box;
+}
+
+.table_title {
+  font-size: 24px;
+}
+
+.add_contact_element {
+  margin-bottom: 20px;
+}
+
+.header_with_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px 20px 20px;
+}
+
+.input-new-client {
+  font-size: 12px;
+  width: 70px;
+  height: 30px;
+  padding: 2px 6px;
+  border:none;
+  border-bottom: 2px solid var(--back-color-dark);
+  border-radius: 0;
+  background-color: var(--back-color-white);
+}
+.input-new-client:focus {
+  box-shadow: inset 1px 1px 3px #565656;
+}
+
+.btn_add-new-client {
+  display: block;
+  margin: 20px 20px 0 auto;
+}
+
+.add-error {
+  width: 50%;
+  margin: 15px auto;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #ffeeee;
+  border-top: 2px solid var(--danger-color);
+  border-bottom: 2px solid var(--danger-color);
+  border-right: 2px solid rgba(51, 51, 51, 0.5);
+  border-left: 2px solid rgba(51, 51, 51, 0.5);
+}
+
+.contacts_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  padding: 0 20px;
+}
+
+.table_row {
+  width: 100%;
+  background-color: var(--back-color-white);
+  box-shadow: 3px 3px 5px #5b5b5b;
+}
+
+.table_head {
+  font-size: 14px;
+  vertical-align: middle;
+  padding: 10px 5px;
+  border-right: 2px solid black;
+}
+.table_head:last-child{
+  border-right: none;
+}
+
+.row-data {
+  vertical-align: middle;
+  font-size: 12px;
+  text-align: center;
+  padding: 12.5px 5px;
+}
+
+.truncate {
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit-delete-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.edit-delete-img {
+  width: 15px;
+}
+
+.row-data.hidden {
+  display: none;
+}
+
+.btn_controls {
+  align-self: flex-end;
+  padding: 10px 20px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn-control {
+  background-color: var(--back-color-light);
+  border: none;
+  border-radius: 50%;
+}
+.left-arrow {
+  background: url("../../assets/leftarrow.svg") center no-repeat ;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+}
+.right-arrow {
+  background: url("../../assets/rightarrow.svg") center no-repeat ;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+}
+.btn-control.active {
+  background-color: #ffaf76;
+}
+
+.btn-control:disabled {
+  cursor: not-allowed;
+}
