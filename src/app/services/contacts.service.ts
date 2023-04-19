@@ -60,5 +60,6 @@ export class ContactsService {
 
   deleteContact(id: number) {
     this.contacts = this.contacts.filter(contact => contact !== this.contacts.filter(contact => contact.id == id)[0]);
+    this.contactsCopy = this.contacts
   }
 }
